@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sistema Automatizado de Monitoreo para Horno Industrial</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0 20px;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+      background-color: #004080;
+      color: white;
+      font-size: 2.5rem;
+      font-weight: bold;
+      letter-spacing: 1.5px;
+    }
+    nav {
+      background-color: #0066cc;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 15px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    nav a:hover {
+      background-color: #004080;
+    }
+    section {
+      background: white;
+      margin: 30px auto;
+      max-width: 900px;
+      padding: 25px 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+    h2 {
+      color: #004080;
+      margin-bottom: 15px;
+      border-bottom: 3px solid #0066cc;
+      padding-bottom: 5px;
+    }
+    h3 {
+      color: #0059b3;
+      margin-top: 35px;
+      margin-bottom: 10px;
+    }
+    h4 {
+      color: #0066cc;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+    ul {
+      margin-left: 20px;
+      list-style-type: disc;
+      color: #222;
+    }
+    p {
+      font-size: 1.05rem;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 6px;
+      display: block;
+      margin: 20px auto; /* Centradas */
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 40px;
+    }
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  Sistema Automatizado de Monitoreo para Horno Industrial
+</header>
+
+<nav>
+  <a href="#introduccion">Introducción</a>
+  <a href="#objetivo">Objetivo</a>
+  <a href="#marco">¿Cómo Funciona Nuestro Sistema?</a>
+  <a href="#desarrollo">Desarrollo</a>
+</nav>
+
+<section id="introduccion">
+  <h2>¿Por Qué Quisimos Hacer Este Proyecto?</h2>
+  <p>
+    La automatización industrial ha revolucionado la forma en que supervisamos procesos complejos, haciendo que las operaciones sean más seguras, eficientes y confiables. En particular, controlar un horno industrial requiere monitorear constantemente factores como temperatura, gases inflamables y la presencia de personas para prevenir accidentes y optimizar el uso de energía.
+  </p>
+  <p>
+    Por eso, diseñamos un sistema que integra sensores inteligentes y actuadores, usando una interfaz gráfica amigable y un Arduino para capturar datos en tiempo real y responder automáticamente a condiciones críticas.
+  </p>
+</section>
+
+<section id="objetivo">
+  <h2>¿Qué Quisimos Lograr?</h2>
+  <p>
+    Nuestro objetivo fue crear un sistema que detecte y controle variables clave en un horno industrial: temperatura, gases, llama y presencia. Para lograrlo, combinamos tecnología accesible como Arduino con LabVIEW, que facilita la interacción humana y el control automático para aumentar la seguridad y eficiencia en el proceso.
+  </p>
+</section>
+
+<section id="marco">
+  <h2>¿Cómo Funciona Nuestro Sistema?</h2>
+  <p>
+    La base de nuestro sistema son los sensores que “escuchan” el ambiente del horno. El sensor de gas detecta cualquier fuga peligrosa, el sensor de temperatura vigila que el horno no se sobrecaliente, el sensor de llama confirma que la combustión está activa y el sensor de presencia alerta si alguien se acerca al horno.
+  </p>
+  <p>
+    Estos datos viajan a un Arduino, que envía la información a LabVIEW mediante comunicación serial. LabVIEW procesa estos datos usando bloques visuales, tomando decisiones para encender luces, activar alarmas sonoras o incluso bloquear la puerta del horno con un servomotor para evitar accidentes.
+  </p>
+</section>
+
+<section id="desarrollo">
+  <h2>Lo Que Hicimos Paso a Paso</h2>
+  <p>
+    El sistema se comunica con el Arduino a través de un puerto serial usando el toolkit LINX. Este nos permite leer y controlar los sensores y actuadores con facilidad.
+  </p>
+
+  <img src="Diagrama de bloques.jpg" alt="Diagrama de bloques del sistema" />
+
+  <h3>¿Con Qué Trabajamos?</h3>
+  <p>
+    Para construir este sistema usamos diferentes sensores y actuadores que nos ayudaron a monitorear y controlar el horno de manera efectiva.
+  </p>
+
+  <h4>Sensores empleados:</h4>
+  <ul>
+    <li>Sensor de gas (entrada analógica)</li>
+    <li>Sensor de flama (entrada digital)</li>
+    <li>Sensor de temperatura (entrada analógica)</li>
+    <li>Sensor de presencia (entrada digital)</li>
+  </ul>
+
+  <h4>Actuadores / Salidas digitales:</h4>
+  <ul>
+    <li>LEDs indicadores de estado (presencia, flama, temperatura, gas)</li>
+    <li>Buzzer de alerta</li>
+    <li>Servomotor controlado mediante señal PWM</li>
+  </ul>
+
+  <h4>Panel frontal interactivo:</h4>
+  <ul>
+    <li>Indicadores visuales y controles para el usuario</li>
+  </ul>
+
+  <img src="Labview.jpg" alt="Interfaz LabVIEW del proyecto" />
+
+  <h2>Funcionamiento del Sistema</h2>
+  <p>
+    El programa en LabVIEW realiza la adquisición, procesamiento y visualización continua de los datos provenientes de sensores conectados vía comunicación serial.
+  </p>
+  <p>
+    Si la temperatura supera 125 °C, se activa un indicador y un servomotor bloquea la puerta del horno como medida de seguridad. Alarmas visuales y sonoras también se activan ante detección de gas o flama en condiciones peligrosas.
+  </p>
+  <p>
+    El sistema evalúa combinaciones de condiciones críticas para proteger al equipo y al usuario, mostrando el estado en un panel frontal.
+  </p>
+  <p>
+    En particular, detecta la presencia de gas sin flama para activar alertas y evitar riesgos por acumulación de gas no quemado.
+  </p>
+  <p>
+    Cuando el sistema está en condiciones normales, la puerta permanece desbloqueada y no hay alertas activas.
+  </p>
+
+  <h3>Horno en temperatura normal</h3>
+
+  <img src="Normal.jpg" alt="Estado normal del sistema mostrando temperatura y puerta desbloqueada" />
+
+  <p>
+    En la siguiente figura se puede apreciar que, efectivamente, el LED indicador de temperatura normal se enciende y el servomotor está en la posición correspondiente a que la puerta aún no está asegurada porque no hay riesgo en el sistema.
+  </p>
+
+  <img src="Foco verde.jpg" alt="LED indicador de temperatura normal encendido y servomotor en posición segura" style="width:50%;height:auto;"/>
+
+  <h3>Detectando presencia:</h3>
+
+  <p>
+    En la figura anterior se puede observar que ahora se ha detectado presencia con el sensor de movimiento, por tanto, el LED indicador de presencia (en color blanco) se enciende, además se ha detectado una alta temperatura y el indicador de temperatura alta también se enciende. Desde este punto, el servomotor se mueve ya que asegurar la puerta cerrada del horno permitiría no correr un riesgo más grande.
+  </p>
+  <p>
+    El sensor de temperatura ha detectado una temperatura muy alta y por ende el indicador de dicho nivel está activado. Cuando el sensor de flama detecta el fuego, se enciende el indicador de flama. En la interfaz también se muestra la animación de que hay fuego en el área.
+  </p>
+
+  <img src="Presencia.jpg" alt="Detección de presencia en el horno" />
+  <img src="Presencia led.jpg" alt="LED indicador de presencia encendido" />
+
+  <h3>Sensor de flama activo:</h3>
+
+  <img src="Flama activa.jpg" alt="Sensor de flama detectado" />
+  <img src="Flama activa led.jpg" alt="LED indicador de sensor de flama encendido" />
+
+  <p>
+    La imagen anterior, ocurre que cuando el sensor de flama se activa, el sistema detecta por lógica que la temperatura es alta, sin embargo, existe un led también indicador de que el sensor ha detectado flama y por tanto se corre riesgo. Aquí el servomotor toma la misma posición indicando que se ha asegurado la puerta del horno para no agravar el accidente. 
+    <br><br>
+    El siguiente caso ocurre cuando no hay flama, pero el sistema detecta que hay una fuga de gas. El sensor de gas detecta presencia de gases y advierte de tal forma que se presenta una animación en la interfaz, además, el buzzer se activa para generar una alarma. 
+  </p>
+
+  <h3>Horno con gas pero sin flama</h3>
+
+  <img src="Danger.jpg" alt="Sensor detectando gas sin flama" />
+  <img src="Danger led.jpg" alt="LED indicador de sensor de gas encendido" />
+
+  <p>
+    En esta última figura, se acerca un encendedor convencional al sensor para que solo salga gas y no se encienda la llama de este dispositivo. Este sensor es capaz de detectar este tipo de gas y generar una salida analógica para leerla en forma de voltaje con su respectiva resolución. 
+    <br><br>
+    También se dispone de un indicador LED que nos permite saber que la alarma se ha activado y hay suficiente gas para generar una explosión o flama. Este es un indicador de que cualquier movimiento debe ser muy cuidadoso porque, aunque no exista flama, hay una cantidad de gas presente en el área y que puede ser muy peligroso.
+  </p>
+
+  <h3>¿Qué aprendimos en este proyecto?</h3>
+
+  <p>
+    En conclusión, este proyecto nos permitió desarrollar y comprender un sistema automatizado integral para la supervisión y control seguro de un horno industrial. Mediante la integración de sensores de gas, temperatura, flama y presencia, junto con actuadores como LEDs, buzzer y servomotor, logramos crear una interfaz que monitorea en tiempo real y responde automáticamente ante condiciones críticas. Esto demuestra cómo la combinación de hardware accesible y software visual puede incrementar la seguridad y eficiencia en procesos industriales, previniendo accidentes y mejorando el control operativo.
+  </p>
+
+</section>
+
+<footer>
+  &copy; 2025 Proyecto de Automatización Industrial - Todos los derechos reservados
+</footer>
+
+</body>
+</html>
+
